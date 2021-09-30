@@ -1,0 +1,15 @@
+name: "pyspark-high-load" # The name of the job run.
+virtualClusterId: "dq0cuiamlo35zre23iyykrqp0" # [REQUIRED] The virtual cluster ID for which the job run request is submitted.
+executionRoleArn: "arn:aws:iam::381354187112:role/AmazonEMRContainersJobExecutionRole" # [REQUIRED] The execution role ARN for the job run.
+releaseLabel: "emr-6.3.0-latest" # [REQUIRED] The Amazon EMR release version to use for the job run.
+jobDriver: # [REQUIRED] The job driver for the job run.
+  sparkSubmitJobDriver: # The job driver parameters specified for spark submit.
+    entryPoint: "local:///usr/lib/spark/examples/src/main/python/pi.py" # [REQUIRED] The entry point of job application.
+    entryPointArguments: # The arguments for job application.
+      - "100"
+    sparkSubmitParameters: "--conf spark.executor.instances=100 --conf spark.executor.memory=8G --conf spark.executor.cores=4 --conf spark.driver.cores=1" # The Spark submit parameters that are used for job runs.
+configurationOverrides: # The configuration overrides for the job run.
+  monitoringConfiguration: # The configurations for monitoring.
+    cloudWatchMonitoringConfiguration: # Monitoring configurations for CloudWatch.
+      logGroupName: "/aws/emr-containers/jobs" # [REQUIRED] The name of the log group for log publishing.
+      logStreamNamePrefix: "pyspark-high-load" # The specified name prefix for log streams.
