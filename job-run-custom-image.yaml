@@ -7,7 +7,7 @@ jobDriver: # [REQUIRED] The job driver for the job run.
     entryPoint: "local:///usr/lib/spark/examples/jars/spark-examples.jar" # [REQUIRED] The entry point of job application.
     entryPointArguments: # The arguments for job application.
       - "100"
-    sparkSubmitParameters: "--class org.apache.spark.examples.SparkPi --conf spark.executor.instances=1 --conf spark.executor.memory=4G --conf spark.executor.cores=2 --conf spark.driver.cores=1" # The Spark submit parameters that are used for job runs.
+    sparkSubmitParameters: "--class org.apache.spark.examples.SparkPi --conf spark.executor.instances=1 --conf spark.executor.memory=2G --conf spark.executor.cores=2 --conf spark.driver.cores=1" # The Spark submit parameters that are used for job runs.
 configurationOverrides: # The configuration overrides for the job run.
   monitoringConfiguration: # The configurations for monitoring.
     cloudWatchMonitoringConfiguration: # Monitoring configurations for CloudWatch.

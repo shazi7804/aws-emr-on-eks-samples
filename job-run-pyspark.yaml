@@ -8,8 +8,8 @@ jobDriver: # [REQUIRED] The job driver for the job run.
     entryPointArguments: # The arguments for job application.
       - "100"
     sparkSubmitParameters: "--conf spark.executor.instances=2
-                            --conf spark.executor.memory=4G
-                            --conf spark.executor.cores=4
+                            --conf spark.executor.memory=2G
+                            --conf spark.executor.cores=1
                             --conf spark.driver.cores=1
                             --conf spark.ui.prometheus.enabled=true
                             --conf spark.executor.processTreeMetrics.enabled=true" # The Spark submit parameters that are used for job runs.
